@@ -83,5 +83,4 @@ const catData: Array<Cat> = [
 ];
 
 catData.forEach((cat) => (cat.id = uuidv4()));
-// console.log(catData); // each cat should now have a unique ID
 export default catData;

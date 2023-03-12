@@ -1,5 +1,6 @@
 import Cat from "../data/cat";
-import CatImage from "./cat_image";
+import Dog from "../data/dog";
+import PetImage from "./pet_image";
 import cat1 from "../assets/images/cat1.jpg";
 import cat2 from "../assets/images/cat2.jpg";
 import cat3 from "../assets/images/cat3.jpg";
@@ -12,8 +13,11 @@ import cat9 from "../assets/images/cat9.jpg";
 import cat10 from "../assets/images/cat10.jpg";
 import cat11 from "../assets/images/cat11.jpg";
 import cat12 from "../assets/images/cat12.jpg";
+import dog1 from "../assets/images/dog1.jpeg";
+import dog2 from "../assets/images/dog2.jpeg";
+import dog3 from "../assets/images/dog3.jpeg";
 
-const images = [
+const catImages = [
     {
         image: cat1,
         altText: "Describe this cat!",
@@ -112,24 +116,44 @@ const images = [
     },
 ];
 
-interface CatCardProps {
-    catObject: Cat;
-    catIndex: number;
+const dogImages = [
+    {
+        image: dog1,
+        altText: "Describe this dog!",
+        licenceType: "CC BY-SA 2.0",
+        licenceUrl: "https://creativecommons.org/licenses/by-sa/2.0/",
+    },
+    {
+        image: dog2,
+        altText: "Describe this dog!",
+        licenceType: "CC BY-SA 2.0",
+        licenceUrl: "https://creativecommons.org/licenses/by-sa/2.0/",
+    },
+    {
+        image: dog3,
+        altText: "Describe this dog!",
+        licenceType: "CC BY-ND 2.0",
+        licenceUrl: "https://creativecommons.org/licenses/by-nd/2.0/",
+    },
+];
+
+interface PetCardProps {
+    type: "cat" | "dog";
+    petObject: Cat | Dog;
+    index: number;
 }
 
-const CatCard: React.FC<CatCardProps> = ({ catObject, catIndex }) => {
-    const { name, species, favFoods, birthYear } = catObject;
-    // const catItem = ;
+const PetCard: React.FC<PetCardProps> = ({ type, petObject, index }) => {
+    const { name, species, favFoods, birthYear } = petObject;
     return (
         <div className="card">
             <h3 className="card__text card__header">{name}</h3>
             <p className="card__text">Species: {species}</p>
             <p className="card__text">Favourite Food(s): {favFoods}</p>
             <p className="card__text">Birth Year: {birthYear}</p>
-
-            {catIndex < images.length && <CatImage catItem={images[catIndex]} />}
+            {type === "cat" && index < catImages.length && <PetImage petItem={catImages[index]} />}
+            {type === "dog" && index < dogImages.length && <PetImage petItem={dogImages[index]} />}
         </div>
     );
 };
-
-export default CatCard;
+export default PetCard;
