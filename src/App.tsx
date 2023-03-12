@@ -82,9 +82,9 @@ function App(): JSX.Element {
         },
     ];
 
-    const [cats, setCats] = useState<Array<Cat>>(defaultCats);
+    // TODO: activity 6 extension
 
-    // console.log("Our pretties 😻: ", cats);
+    const [cats, setCats] = useState<Array<Cat>>(defaultCats);
 
     return (
         <>
@@ -93,8 +93,8 @@ function App(): JSX.Element {
 
             <main>
                 <div className="cards__wrapper">
-                    {cats.map((cat) => (
-                        <CatCard catObject={cat} />
+                    {cats.map((cat, index) => (
+                        <CatCard catObject={cat} catIndex={index} />
                     ))}
                 </div>
             </main>
