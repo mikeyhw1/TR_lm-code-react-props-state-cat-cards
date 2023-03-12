@@ -80,16 +80,24 @@ function App(): JSX.Element {
             favFoods: ["milk"],
             birthYear: 2021,
         },
+        {
+            name: "Captain Catface",
+            species: "Sea Cattain",
+            favFoods: ["fish, rum"],
+            birthYear: 2016,
+        },
     ];
 
     // TODO: activity 6 extension
 
     const [cats, setCats] = useState<Array<Cat>>(defaultCats);
 
+    const catCount = cats.length;
+
     return (
         <>
             <Navbar />
-            <Header />
+            <Header catCount={catCount} />
 
             <main>
                 <div className="cards__wrapper">

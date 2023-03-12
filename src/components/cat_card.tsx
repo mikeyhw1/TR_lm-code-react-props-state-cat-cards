@@ -126,7 +126,8 @@ const CatCard: React.FC<CatCardProps> = ({ catObject, catIndex }) => {
             <p className="card__text">Species: {species}</p>
             <p className="card__text">Favourite Food(s): {favFoods}</p>
             <p className="card__text">Birth Year: {birthYear}</p>
-            <CatImage catItem={images[catIndex]} />
+
+            {catIndex < images.length && <CatImage catItem={images[catIndex]} />}
         </div>
     );
 };
