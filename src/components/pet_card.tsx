@@ -146,7 +146,12 @@ interface PetCardProps {
 const PetCard: React.FC<PetCardProps> = ({ type, petObject, index }) => {
     const { name, species, favFoods, birthYear } = petObject;
     return (
-        <div className="card">
+        <div
+            className="card"
+            style={{
+                backgroundColor: type === "cat" ? "#f4d35e" : "#22ff00",
+            }}
+        >
             <h3 className="card__text card__header">{name}</h3>
             <p className="card__text">Species: {species}</p>
             <p className="card__text">Favourite Food(s): {favFoods.join(", ")}</p>
